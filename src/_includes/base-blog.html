@@ -1,0 +1,12 @@
+---js 
+{
+    layout: "base.html",
+    title: " My Page Title ",
+    currentDate: function() {
+      return (new Date()).toLocaleString().split(',')[0];
+    }
+}
+---
+<h1>{{ title }}</h1>
+<p>Published on {{ currentDate() }}</p>
+{{ content }}

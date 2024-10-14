@@ -1,0 +1,94 @@
+@import url('./reset.css');
+
+html, body {
+    height: 100%;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+}
+
+main {
+    flex: 1;
+}
+
+.first-line {
+    padding: auto;
+    margin: 10px;
+}
+p {
+    font-size: 1.1em;
+}
+
+body {
+    background-color: lightblue;
+}
+
+footer {
+    background-color: #f8f9fa;
+    text-align: center;
+    padding: 10px;
+}
+
+.posts {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+h1:has(a[href="/index"]) {
+    font-size: 1.6em;
+    font-weight: bold;
+    padding: 10px;
+    color: rgb(46, 46, 193);
+    justify-self: end;
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    background-color: #f8f9fa;
+    gap: 10px;
+}
+
+.sub-nav{
+    display: flex;
+    gap: 30px;
+    font-size: 1.4em;
+}
+
+.caption {
+    display: block;
+} 
+
+a ,a:link, a:visited {
+    outline-color: transparent;
+    outline: none;
+}
+
+a:focus {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    background-color: violet;
+    color: blue;
+
+}
+
+a[href="/index"]:link, 
+a[href="/index"]:visited,
+a[href="/index"]:focus,
+a[href="/index"]:hover,
+a[href="/index"]:active {
+    text-decoration: none;
+    background-color: transparent;
+    color: inherit;
+}
