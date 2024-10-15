@@ -1,8 +1,9 @@
 @import url('./reset.css');
 
+/* variable colors */
 :root{
---base-color:white;
---base-variant:#e8e9ed;
+--base-color:hsl(225, 23%, 95%);
+--base-variant:hsl(228, 26%, 90%);
 --text-color:#111528;
 --secondary-text:#232738;
 --primary-color: #3a435d;
@@ -17,6 +18,7 @@
 --primary-color:#3a435d;
 --accent-color: #0071ff;
 }
+
 html, body {
     height: 100%;
     font-family:Arial, Helvetica, sans-serif;
@@ -28,6 +30,11 @@ html, body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; 
+}
+
+.smaller-flex-container{
+    display: flex;
+    flex-direction: column;
 }
 
 main {
@@ -46,7 +53,11 @@ body {
 }
 
 .first-line {
-    margin: 16px;
+    padding: 8px;
+}
+
+.second-line {
+    padding: 16px;
 }
 main {
     margin: 8px;
@@ -68,13 +79,13 @@ h1:has(a[href="/index"]) {
     font-weight: bold;
     padding: 10px;
     color: var(--accent-color);
-    justify-self: end;
+    flex: 2;
 }
 
 .navbar{
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: center;
     padding: 5px;
     background-color: var(--base-variant);
     gap: 10px;
@@ -111,12 +122,13 @@ a:active {
 a[href="/index"]:link, 
 a[href="/index"]:visited,
 a[href="/index"]:focus,
-a[href="/index"]:hover,
 a[href="/index"]:active {
     text-decoration: none;
     background-color: transparent;
     color: inherit;
 }
+
+
 
 @keyframes animation_box {
     0%   {background-color:red;}
@@ -139,9 +151,10 @@ a[href="/index"]:active {
   }
 
 #theme-switch{
+    border: none;
     height: 50px;
     width: 50px;
-    padding: 0; 
+    padding: 0;
     border-radius: 70%;
     background-color: var(--base-variant);
     display: flex;
@@ -149,6 +162,11 @@ a[href="/index"]:active {
     align-items: center;
 
 }
+
+#theme-switch:hover {
+    cursor: pointer;
+}
+
 #theme-switch svg {
     fill: var(--primary-color);
 }
@@ -157,14 +175,33 @@ a[href="/index"]:active {
     display: none;
 }
 
+#theme-switch svg {
+    transition: fill 1s;
+}
+#theme-switch:hover svg{
+    fill: yellow;
+}
+
 .darkmode #theme-switch svg:first-child {
-display: none;
+    display: none;
 }
 
 .darkmode #theme-switch svg:last-child{
     display: block;
 }
 
-body, .navbar, footer {
+body, .navbar, footer, #theme-switch {
     transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+span[class='italics'] {
+    font-style: italic;
+}
+
+ul {
+    list-style-type: square;
+}
+
+li {
+    margin: 10px 0;
 }
