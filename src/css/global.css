@@ -1,8 +1,26 @@
 @import url('./reset.css');
 
+:root{
+--base-color:white;
+--base-variant:#e8e9ed;
+--text-color:#111528;
+--secondary-text:#232738;
+--primary-color: #3a435d;
+--accent-color: #0071ff;
+}
+
+.darkmode{
+--base-color:#070b1d;
+--base-variant:#101425;
+--text-color:#ffffff;
+--secondary-text:#a4a5b8;
+--primary-color:#3a435d;
+--accent-color: #0071ff;
+}
 html, body {
     height: 100%;
     font-family:Arial, Helvetica, sans-serif;
+    color: var(--text-color);
 }
 
 .flex-container {
@@ -24,11 +42,11 @@ p {
 }
 
 body {
-    background-color: lightblue;
+    background-color: var(--base-color);
 }
 
 footer {
-    background-color: #f8f9fa;
+    background-color: var(--base-variant);
     text-align: center;
     padding: 10px;
 }
@@ -42,16 +60,16 @@ h1:has(a[href="/index"]) {
     font-size: 1.6em;
     font-weight: bold;
     padding: 10px;
-    color: rgb(46, 46, 193);
+    color: var(--accent-color);
     justify-self: end;
 }
 
 .navbar{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-evenly;
     padding: 5px;
-    background-color: #f8f9fa;
+    background-color: var(--base-variant);
     gap: 10px;
 }
 
@@ -68,6 +86,7 @@ h1:has(a[href="/index"]) {
 a ,a:link, a:visited {
     outline-color: transparent;
     outline: none;
+    color: var(--accent-color);
 }
 
 a:focus {
@@ -78,8 +97,7 @@ a:hover {
 }
 
 a:active {
-    background-color: violet;
-    color: blue;
+    color: var(--accent-color);
 
 }
 
@@ -91,4 +109,51 @@ a[href="/index"]:active {
     text-decoration: none;
     background-color: transparent;
     color: inherit;
+}
+
+@keyframes animation_box {
+    0%   {background-color:red;}
+    25%  {background-color:yellow; }
+    50%  {background-color:blue; }
+    75%  {background-color:green;}
+    100% {background-color:red; }
+  }
+
+  /* The element to apply the animation to */
+.animationootd {
+    width: 250px;
+    height: 250px;
+    position: relative;
+    background-color: red;
+    animation-name: animation_box;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+    margin: auto;
+  }
+
+#theme-switch{
+    height: 50px;
+    width: 50px;
+    padding: 0; 
+    border-radius: 50%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#theme-switch svg {
+    fill: var(--primary-color);
+}
+
+#theme-switch svg:last-child{
+    display: none;
+}
+
+.darkmode #theme-switch svg:first-child {
+display: none;
+}
+
+.darkmode #theme-switch svg:last-child{
+    display: block;
 }
