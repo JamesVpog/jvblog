@@ -12,7 +12,7 @@
 .darkmode{
 --base-color:#070b1d;
 --base-variant:#101425;
---text-color:#ffffff;
+--text-color:#fffff2;
 --secondary-text:#a4a5b8;
 --primary-color:#3a435d;
 --accent-color: #0071ff;
@@ -22,6 +22,7 @@ html, body {
     font-family:Arial, Helvetica, sans-serif;
     color: var(--text-color);
 }
+
 
 .flex-container {
     display: flex;
@@ -33,9 +34,8 @@ main {
     flex: 1;
 }
 
-.first-line {
-    padding: auto;
-    margin: 10px;
+h1 {
+    font-size: 1.5em;
 }
 p {
     font-size: 1.1em;
@@ -45,6 +45,12 @@ body {
     background-color: var(--base-color);
 }
 
+.first-line {
+    margin: 16px;
+}
+main {
+    margin: 8px;
+}
 footer {
     background-color: var(--base-variant);
     text-align: center;
@@ -54,6 +60,7 @@ footer {
 .posts {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    margin: 16px;
 }
 
 h1:has(a[href="/index"]) {
@@ -135,7 +142,7 @@ a[href="/index"]:active {
     height: 50px;
     width: 50px;
     padding: 0; 
-    border-radius: 50%;
+    border-radius: 70%;
     background-color: var(--base-variant);
     display: flex;
     justify-content: center;
@@ -156,4 +163,8 @@ display: none;
 
 .darkmode #theme-switch svg:last-child{
     display: block;
+}
+
+body, .navbar, footer {
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
