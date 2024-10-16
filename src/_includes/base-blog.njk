@@ -1,0 +1,11 @@
+---
+layout: "base.njk"
+title: "{{ title }}"
+---
+
+<h1 class="first-line">{{ title }}</h1>
+<p class="first-line">Date: {{ page.date.toDateString()}}</p>
+
+<p class="second-line">
+  {{ content | safe }}
+</p>

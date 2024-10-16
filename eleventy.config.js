@@ -1,4 +1,4 @@
-
+const { DateTime } = require("luxon");
 
 module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/css");
@@ -7,16 +7,20 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addPassthroughCopy("./src/js");
     eleventyConfig.addWatchTarget("./src/js");
 
-
     return {
         dir : {
             input: 'src',
             includes: '_includes',
             output: '_site',
         },
-        templateFormats: ['md', 'njk', 'html'],
+        templateFormats: [
+            "md",
+            "njk",
+            "html",
+            "liquid",
+            "11ty.js",
+        ],
         markdownTemplateEngine: 'njk',
         htmlTemplateEngine: 'njk',
-        dataTemplateEngine: 'njk'
     };
 }
