@@ -74,7 +74,7 @@ footer {
     margin: 16px;
 }
 
-h1:has(a[href="/index"]) {
+h1:has(a[href="/"]) {
     font-size: 1.6em;
     font-weight: bold;
     padding: 10px;
@@ -119,10 +119,10 @@ a:active {
 
 }
 
-a[href="/index"]:link, 
-a[href="/index"]:visited,
-a[href="/index"]:focus,
-a[href="/index"]:active {
+a[href="/"]:link, 
+a[href="/"]:visited,
+a[href="/"]:focus,
+a[href="/"]:active {
     text-decoration: none;
     background-color: transparent;
     color: inherit;
