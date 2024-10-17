@@ -1,5 +1,10 @@
 @import url('./reset.css');
 
+html, body {
+    height: 100%;
+    font-family:Arial, Helvetica, sans-serif;
+    color: var(--text-color);
+}
 /* variable colors */
 :root{
 --base-color:hsl(225, 23%, 95%);
@@ -19,10 +24,49 @@
 --accent-color: #0071ff;
 }
 
-html, body {
-    height: 100%;
-    font-family:Arial, Helvetica, sans-serif;
-    color: var(--text-color);
+
+#theme-switch{
+    border: none;
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 70%;
+    background-color: var(--base-variant);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#theme-switch:hover {
+    cursor: pointer;
+}
+
+#theme-switch svg {
+    fill: var(--primary-color);
+}
+
+#theme-switch svg:last-child{
+    display: none;
+}
+
+#theme-switch svg {
+    transition: fill 1s;
+}
+#theme-switch:hover svg{
+    fill: yellow;
+}
+
+.darkmode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkmode #theme-switch svg:last-child{
+    display: block;
+}
+
+body, .navbar, footer, #theme-switch {
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 
@@ -74,7 +118,7 @@ footer {
     margin: 16px;
 }
 
-h1:has(a[href="/index"]) {
+h1:has(a[href="/"]) {
     font-size: 1.6em;
     font-weight: bold;
     padding: 10px;
@@ -119,10 +163,10 @@ a:active {
 
 }
 
-a[href="/index"]:link, 
-a[href="/index"]:visited,
-a[href="/index"]:focus,
-a[href="/index"]:active {
+a[href="/"]:link, 
+a[href="/"]:visited,
+a[href="/"]:focus,
+a[href="/"]:active {
     text-decoration: none;
     background-color: transparent;
     color: inherit;
@@ -149,50 +193,6 @@ a[href="/index"]:active {
     animation-iteration-count: infinite;
     margin: auto;
   }
-
-#theme-switch{
-    border: none;
-    height: 50px;
-    width: 50px;
-    padding: 0;
-    border-radius: 70%;
-    background-color: var(--base-variant);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-
-#theme-switch:hover {
-    cursor: pointer;
-}
-
-#theme-switch svg {
-    fill: var(--primary-color);
-}
-
-#theme-switch svg:last-child{
-    display: none;
-}
-
-#theme-switch svg {
-    transition: fill 1s;
-}
-#theme-switch:hover svg{
-    fill: yellow;
-}
-
-.darkmode #theme-switch svg:first-child {
-    display: none;
-}
-
-.darkmode #theme-switch svg:last-child{
-    display: block;
-}
-
-body, .navbar, footer, #theme-switch {
-    transition: background-color 0.5s ease, color 0.5s ease;
-}
 
 span[class='italics'] {
     font-style: italic;
