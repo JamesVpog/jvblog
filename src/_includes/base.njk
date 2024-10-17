@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <!-- Detect theme first to avoid white flicker -->
+    <script>
+        const darkmode = localStorage.getItem('darkmode');
+        darkmode === 'active' ? document.body.classList.add('darkmode') : document.body.classList.remove('darkmode');
+    </script>
     <link rel="stylesheet" href="/css/global.css">
     <script type="text/javascript" src="/js/darkmode.js" defer></script>
 </head>

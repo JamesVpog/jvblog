@@ -11,7 +11,7 @@ const disableDarkMode = () => {
     localStorage.setItem('darkmode', null);
 }
 
-if (darkmode === 'active') enableDarkMode();
+if (darkmode === 'active') enableDarkMode(); //fallback white flicker
 
 themeSwitch.addEventListener("click" , () => {
     darkmode = localStorage.getItem('darkmode');
