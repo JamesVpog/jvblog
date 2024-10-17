@@ -1,5 +1,4 @@
 let darkmode = localStorage.getItem('darkmode');
-
 const themeSwitch = document.getElementById('theme-switch')
 
 const enableDarkMode = () => {
@@ -9,7 +8,7 @@ const enableDarkMode = () => {
 
 const disableDarkMode = () => {
     document.body.classList.remove('darkmode');
-    localStorage.setItem('darkmode', 'inactive');
+    localStorage.setItem('darkmode', null);
 }
 
 if (darkmode === 'active') enableDarkMode();
