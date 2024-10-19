@@ -1,15 +1,16 @@
 @import url('./reset.css');
 
+/* general styles */
 html, body {
     height: 100%;
     font-family:Arial, Helvetica, sans-serif;
     color: var(--text-color);
 }
-/* variable colors */
+
 :root{
 --base-color:hsl(225, 23%, 95%);
 --base-variant:hsl(228, 26%, 90%);
---text-color:#111528;
+--text-color:#333;
 --secondary-text:#232738;
 --primary-color: #3a435d;
 --accent-color: #0071ff;
@@ -24,7 +25,7 @@ html, body {
 --accent-color: #0071ff;
 }
 
-
+/* darkmode button styles */
 #theme-switch{
     border: none;
     height: 50px;
@@ -65,7 +66,7 @@ html, body {
     display: block;
 }
 
-body, .navbar, footer, #theme-switch {
+body, nav, footer, #theme-switch {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -73,12 +74,15 @@ body, .navbar, footer, #theme-switch {
 .flex-container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; 
+    min-height: 100vh; /* pushes footer down */
 }
 
 .smaller-flex-container{
     display: flex;
     flex-direction: column;
+    max-width: 800px; 
+    margin: 0 auto;   
+    padding: 20px;   
 }
 
 main {
@@ -96,13 +100,6 @@ body {
     background-color: var(--base-color);
 }
 
-.first-line {
-    padding: 8px;
-}
-
-.second-line {
-    padding: 16px;
-}
 main {
     margin: 8px;
 }
@@ -112,11 +109,6 @@ footer {
     padding: 10px;
 }
 
-.posts {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 16px;
-}
 
 h1:has(a[href="/"]) {
     font-size: 1.6em;
@@ -126,7 +118,7 @@ h1:has(a[href="/"]) {
     flex: 2;
 }
 
-.navbar{
+nav{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -205,3 +197,4 @@ ul {
 li {
     margin: 10px 0;
 }
+
