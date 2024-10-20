@@ -29,11 +29,6 @@ html, body {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-@media (min-width: 48em) {
-    body {
-        font-size: 1.125rem;
-    }
-}
 /* navigation bar styles, 
 on mobile navlinks are hidden on mobile*/
 
@@ -135,14 +130,11 @@ body, nav, footer, #theme-switch {
 }
 
 /* text styles */
-h1, h2, h3, .title-line{
+h1, h2, .title-line{
     margin-bottom: 10px;
     font-weight: bold;
 }
 
-h1 {
-    font-size: 1.5em;
-}
 
 h1:has(a[href="/"]) {
     font-size: 1.4em;
@@ -151,10 +143,6 @@ h1:has(a[href="/"]) {
     color: var(--accent-color);
     flex: 2;
     margin-bottom: 5px;
-}
-
-.posts h3, .title-line {
-    font-size: 1rem;
 }
 
 .date {
@@ -166,6 +154,12 @@ h1:has(a[href="/"]) {
 p {
     margin-bottom: 15px; 
     font-size: 1.1em;
+}
+
+@media (min-width: 48em) {
+    body {
+        font-size: 1.125rem;
+    }
 }
 
 /* Link styles */
@@ -205,11 +199,21 @@ main {
 }
 
 .smaller-flex-container{
-    display: flex;
-    flex-direction: column;
-    max-width: 800px; 
-    margin: 0 auto;   
-    padding: 20px;   
+    width: 100%;              
+    max-width: 90%;            
+    padding: 20px;
+    box-sizing: border-box;
+    border: 3px solid red;
+}
+
+@media (min-width: 48em) {
+    .smaller-flex-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;   
+        padding: 20px;   
+        max-width: 700px;      
+    }
 }
 
 /* animation */
@@ -239,8 +243,15 @@ span[class='italics'] {
 
 ul {
     list-style-type: square;
+    margin-bottom: 15px;
+    padding-left: 1.125rem;
 }
 
-li {
-    margin: 10px 0;
+.hidden {
+    display: none;
 }
+
+.hidden:hover {
+    display: block;
+}
+
