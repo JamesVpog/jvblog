@@ -1,28 +1,104 @@
 @import url('./reset.css');
 
+:root {
+    --base-color: hsl(225, 23%, 95%);
+    --base-variant: hsl(228, 26%, 90%);
+    --text-color: hsl(0, 0%, 20%);
+    --secondary-text: hsl(227, 23%, 20%);
+    --primary-color: hsl(225, 24%, 30%);
+    --accent-color: hsl(210, 100%, 50%);
+  }
+  
+  .darkmode {
+    --base-color: hsl(228, 50%, 8%);
+    --base-variant: hsl(225, 39%, 10%);
+    --text-color: hsl(60, 100%, 95%);
+    --secondary-text: hsl(234, 14%, 71%);
+    --primary-color: hsl(225, 24%, 30%);
+    --accent-color: hsl(210, 100%, 50%);
+  }
+  
 /* general styles */
 html, body {
     height: 100%;
     font-family:Arial, Helvetica, sans-serif;
     color: var(--text-color);
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
-:root{
---base-color:hsl(225, 23%, 95%);
---base-variant:hsl(228, 26%, 90%);
---text-color:#333;
---secondary-text:#232738;
---primary-color: #3a435d;
---accent-color: #0071ff;
+@media (min-width: 48em) {
+    body {
+        font-size: 1.125rem;
+    }
+}
+/* nav bar styles, 
+on mobile navlinks are hidden on mobile*/
+
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--base-variant);
 }
 
-.darkmode{
---base-color:#070b1d;
---base-variant:#101425;
---text-color:#fffff2;
---secondary-text:#a4a5b8;
---primary-color:#3a435d;
---accent-color: #0071ff;
+.sub-nav{
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    text-align: center;
+}
+.sub-nav a {
+    margin: 5px 0;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.nav-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--primary-color)
+}
+
+/* Show nav links when the toggle is active */
+.nav-active .sub-nav {
+    display: flex;
+}
+
+h1:has(a[href="/"]) {
+    font-size: 1.4em;
+    font-weight: bold;
+    padding: 10px;
+    color: var(--accent-color);
+    flex: 2;
+}
+
+/* Larger screens (bigger than 48em or ~768px)*/
+@media (min-width: 48em) {
+
+    nav {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        gap: 10px;
+    }
+    .sub-nav {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        font-size: 1.4em;
+        margin-top: 0;
+    }
+    .sub-nav a {
+        margin: 0 10px;
+    }
+    .nav-toggle {
+        display: none; 
+    }
 }
 
 /* darkmode button styles */
@@ -71,6 +147,37 @@ body, nav, footer, #theme-switch {
 }
 
 
+.title-line {
+    font-weight: bold;
+    font-size: 1rem; /* Mobile-friendly font size */
+    margin-bottom: 10px;
+}
+
+.posts h3 {
+    margin-bottom: 10px;
+}
+h1, h2, h3 {
+    margin-bottom: 10px;
+}
+
+.date {
+    margin-bottom: 20px; 
+    font-size: 0.9rem; 
+    color: #999; 
+}
+
+p {
+    margin-bottom: 15px; 
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.875rem;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
 .flex-container {
     display: flex;
     flex-direction: column;
@@ -109,29 +216,6 @@ footer {
     padding: 10px;
 }
 
-
-h1:has(a[href="/"]) {
-    font-size: 1.6em;
-    font-weight: bold;
-    padding: 10px;
-    color: var(--accent-color);
-    flex: 2;
-}
-
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    background-color: var(--base-variant);
-    gap: 10px;
-}
-
-.sub-nav{
-    display: flex;
-    gap: 30px;
-    font-size: 1.4em;
-}
 
 .caption {
     display: block;
