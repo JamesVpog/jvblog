@@ -1,0 +1,9 @@
+--- 
+layout: base.html 
+--- 
+<h1>{{ title }}</h1>
+<p class="date"> Date: {{ page.date.toDateString()}}</p>
+
+<div class="blog">
+  {{ content | safe}}
+</div> 
