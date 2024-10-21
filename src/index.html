@@ -1,16 +1,16 @@
 --- 
-layout: base.njk 
+layout: base.html 
 title: "Home"
 --- 
 
-<p class="first-line"> Welcome! </p>
-<p class="first-line"> As I continue to learn web development, we're starting simple-inspired by 
+<p class="title-line"> Welcome! </p>
+<p> As I continue to learn web development, we're starting simple-inspired by 
     <a href="https://www.stroustrup.com">Bjarne Stroustrup</a>.</p>
 
 
 <section class="posts">
     <div>
-        </h2> Posts </h2>
+        <h2> Posts </h2>
         {% for post in collections.post %}
 
         <h3> <a href="{{ post.url }}">{{ post.data.title }} - {{ post.date.toDateString() }}</a> </h3>

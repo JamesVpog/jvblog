@@ -1,58 +1,113 @@
 @import url('./reset.css');
 
+:root {
+    --base-color: hsl(225, 23%, 95%);
+    --base-variant: hsl(228, 26%, 90%);
+    --text-color: hsl(0, 0%, 20%);
+    --secondary-text: hsl(227, 23%, 20%);
+    --primary-color: hsl(225, 24%, 30%);
+    --accent-color: hsl(210, 100%, 50%);
+  }
+  
+  .darkmode {
+    --base-color: hsl(228, 50%, 8%);
+    --base-variant: hsl(225, 39%, 10%);
+    --text-color: hsl(60, 100%, 95%);
+    --secondary-text: hsl(234, 14%, 71%);
+    --primary-color: hsl(225, 24%, 30%);
+    --accent-color: hsl(210, 100%, 50%);
+  }
+  
+/* general styles */
 html, body {
     height: 100%;
     font-family:Arial, Helvetica, sans-serif;
     color: var(--text-color);
-}
-/* variable colors */
-:root{
---base-color:hsl(225, 23%, 95%);
---base-variant:hsl(228, 26%, 90%);
---text-color:#111528;
---secondary-text:#232738;
---primary-color: #3a435d;
---accent-color: #0071ff;
+    font-size: 1rem;
+    line-height: 1.6;
+    background-color: var(--base-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-.darkmode{
---base-color:#070b1d;
---base-variant:#101425;
---text-color:#fffff2;
---secondary-text:#a4a5b8;
---primary-color:#3a435d;
---accent-color: #0071ff;
+/* navigation bar styles, 
+on mobile navlinks are hidden on mobile*/
+
+nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--base-variant);
 }
 
+.sub-nav{
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    text-align: center;
+}
+.sub-nav a {
+    margin: 5px 0;
+    color: var(--text-color);
+    text-decoration: none;
+}
 
+.nav-toggle {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--primary-color)
+}
+
+/* Show nav links when the toggle is active */
+.nav-active .sub-nav {
+    display: flex;
+}
+
+/* Larger screens (bigger than 48em or ~768px)*/
+@media (min-width: 48em) {
+
+    nav {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        padding: 5px;
+        gap: 10px;
+    }
+    .sub-nav {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        font-size: 1.4em;
+        margin-top: 0;
+    }
+    .sub-nav a {
+        margin: 0 10px;
+    }
+    .nav-toggle {
+        display: none; 
+    }
+}
+
+/* Theme Switch button */
 #theme-switch{
     border: none;
     height: 50px;
     width: 50px;
-    padding: 0;
     border-radius: 70%;
     background-color: var(--base-variant);
     display: flex;
     justify-content: center;
     align-items: center;
-
-}
-
-#theme-switch:hover {
     cursor: pointer;
 }
 
 #theme-switch svg {
     fill: var(--primary-color);
-}
-
-#theme-switch svg:last-child{
-    display: none;
-}
-
-#theme-switch svg {
     transition: fill 1s;
 }
+
 #theme-switch:hover svg{
     fill: yellow;
 }
@@ -61,119 +116,106 @@ html, body {
     display: none;
 }
 
+#theme-switch svg:last-child{
+    display: none;
+}
+
+
 .darkmode #theme-switch svg:last-child{
     display: block;
 }
 
-body, .navbar, footer, #theme-switch {
+body, nav, footer, #theme-switch {
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-
-.flex-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
+/* text styles */
+h1, h2, .title-line{
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-.smaller-flex-container{
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
-}
-
-h1 {
-    font-size: 1.5em;
-}
-p {
-    font-size: 1.1em;
-}
-
-body {
-    background-color: var(--base-color);
-}
-
-.first-line {
-    padding: 8px;
-}
-
-.second-line {
-    padding: 16px;
-}
-main {
-    margin: 8px;
-}
-footer {
-    background-color: var(--base-variant);
-    text-align: center;
-    padding: 10px;
-}
-
-.posts {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    margin: 16px;
-}
 
 h1:has(a[href="/"]) {
-    font-size: 1.6em;
+    font-size: 1.4em;
     font-weight: bold;
     padding: 10px;
     color: var(--accent-color);
     flex: 2;
+    margin-bottom: 5px;
 }
 
-.navbar{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px;
-    background-color: var(--base-variant);
-    gap: 10px;
+.date {
+    margin-bottom: 20px; 
+    font-size: 0.9rem; 
+    color: #999; 
 }
 
-.sub-nav{
-    display: flex;
-    gap: 30px;
-    font-size: 1.4em;
+p {
+    margin-bottom: 15px; 
+    font-size: 1.1em;
 }
 
-.caption {
-    display: block;
-} 
+@media (min-width: 48em) {
+    body {
+        font-size: 1.125rem;
+    }
+}
 
-a ,a:link, a:visited {
+/* Link styles */
+a ,a:link, a:visited, a:focus, a:active {
     outline-color: transparent;
     outline: none;
     color: var(--accent-color);
-}
-
-a:focus {
-    text-decoration: none;
-}
-a:hover {
     text-decoration: none;
 }
 
-a:active {
-    color: var(--accent-color);
 
-}
-
-a[href="/"]:link, 
-a[href="/"]:visited,
-a[href="/"]:focus,
-a[href="/"]:active {
-    text-decoration: none;
+a[href="/"] {
     background-color: transparent;
     color: inherit;
 }
 
+/* footer */
 
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.875rem;
+    background-color: var(--base-variant);
+    color: var(--text-color);
+}
 
+/* flex containers*/
+main {
+    flex: 1;
+    margin: 8px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* pushes footer down */
+}
+
+.smaller-flex-container{
+    width: 100%;              
+    max-width: 90%;            
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 48em) {
+    .smaller-flex-container {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;   
+        padding: 20px;   
+        max-width: 700px;      
+    }
+}
+
+/* animation */
 @keyframes animation_box {
     0%   {background-color:red;}
     25%  {background-color:yellow; }
@@ -182,7 +224,6 @@ a[href="/"]:active {
     100% {background-color:red; }
   }
 
-  /* The element to apply the animation to */
 .animationootd {
     width: 250px;
     height: 250px;
@@ -194,14 +235,22 @@ a[href="/"]:active {
     margin: auto;
   }
 
+/* misc styles */
 span[class='italics'] {
     font-style: italic;
 }
 
 ul {
     list-style-type: square;
+    margin-bottom: 15px;
+    padding-left: 1.125rem;
 }
 
-li {
-    margin: 10px 0;
+.hidden {
+    display: none;
 }
+
+.hidden:hover {
+    display: block;
+}
+
