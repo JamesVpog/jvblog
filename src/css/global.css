@@ -203,7 +203,6 @@ main {
     max-width: 90%;            
     padding: 20px;
     box-sizing: border-box;
-    border: 3px solid red;
 }
 
 @media (min-width: 48em) {
