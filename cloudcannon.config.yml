@@ -1,0 +1,18 @@
+source: /src/
+collections_config:
+  pages:
+    path: ''
+    name: Pages
+    icon: wysiwyg
+  posts:
+    path: posts
+    name: Posts
+    icon: event_available
+paths:
+  static: ''
+  uploads: uploads
+timezone: America/Denver
+markdown:
+  engine: commonmark
+  options:
+    html: true
